@@ -12,22 +12,22 @@ Desenvolvi uma régua de comunicação 100% automatizada, com duração de 5 dia
 
 ### Destaques da Arquitetura:
 
-* **Orquestração:** N8N para desenhar e executar todo o fluxo lógico.
-* **Comunicação:** Integração direta com a WhatsApp Business API para o envio de lembretes personalizados.
-* **Integrações:**
-    * Iniciado por webhook de um CRM (Clint).
-    * Consulta de dados em tempo real em uma plataforma de pagamentos (Guru) via API REST.
-* **Lógica Avançada:** O sistema possui um workflow "ouvinte" que detecta respostas do cliente. Se o cliente confirma o pagamento, a régua de comunicação é **interrompida imediatamente**, evitando SPAM e melhorando a experiência do usuário.
+- **Orquestração:** N8N para desenhar e executar todo o fluxo lógico.
+- **Comunicação:** Integração direta com a WhatsApp Business API para o envio de lembretes personalizados.
+- **Integrações:**
+  - Iniciado por webhook de um CRM (Clint).
+  - Consulta de dados em tempo real em uma plataforma de pagamentos (Guru) via API REST.
+- **Lógica Avançada:** O sistema possui um workflow "ouvinte" que detecta respostas do cliente. Se o cliente confirma o pagamento, a régua de comunicação é **interrompida imediatamente**, evitando SPAM e melhorando a experiência do usuário.
 
 ### Tecnologias e Ferramentas
 
-* N8N
-* WhatsApp Business API
-* APIs REST / Webhooks
-* Git / GitHub
+- N8N
+- WhatsApp Business API
+- APIs REST / Webhooks
+- Git / GitHub
 
 ---
 
 ### Visualização do Fluxo Principal
 
-*Insira aqui o print do seu projeto (`image_a709e2.jpg`)*
+![Visualização do Workflow](imagens/imagem-funil.png)
