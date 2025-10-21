@@ -1,0 +1,124 @@
+{
+  "name": "Funil Pix / Boleto (Condição de parada)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## I'm a note \nBusine ID\n9680607361990376\nToken Meta Clint\nSUA_CHAVE_API_AQUI"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [464, 224],
+      "typeVersion": 1,
+      "id": "e591296a-acf9-4993-8bf1-6eaca0d4cbe5",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "updates": ["messages"],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [976, 160],
+      "id": "ec34bf07-da1e-4617-8b55-7fca31ec8795",
+      "name": "WhatsApp Trigger",
+      "webhookId": "26fdce3d-041e-48e0-bc9e-efd003378cb3",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "iZgcIgdJQTq1lRBf",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.messages[0].button.payload }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1840, 160],
+      "id": "bf0273b4-e2e3-48c7-8b97-71aa3e382a85",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "111a53a7-0707-4159-aad6-3322cd45d29e",
+              "leftValue": "={{ $json.messages }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1e95b646-0927-4e63-a653-4356d11b0c1f",
+              "leftValue": "={{ $json.messages[0].button.payload }}",
+              "rightValue": "webhook-wait",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1168, 160],
+      "id": "cfee31dc-3aa3-464a-83b0-c66148706a3f",
+      "name": "If"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "WhatsApp Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [[]]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4c93194e-19e2-4449-94b1-3083dc32b061",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9cb86d0a2e838767156cffe081a75b10d5535136efc617f9ff3baa7b928d4227"
+  },
+  "id": "d6eTNkg6LHDd8M09",
+  "tags": []
+}
