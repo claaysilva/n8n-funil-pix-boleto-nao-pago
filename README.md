@@ -30,4 +30,4 @@ Desenvolvi uma régua de comunicação 100% automatizada, com duração de 5 dia
 
 ### Visualização do Fluxo Principal
 
-![Visualização do Workflow](imagens/imagem-funil.png)
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/39dcec6a-9efc-48d1-a93c-342e8798ddfd" />
